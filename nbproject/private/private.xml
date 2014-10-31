@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <data xmlns="http://www.netbeans.org/ns/make-project-private/1">
+        <activeConfTypeElem>3</activeConfTypeElem>
+        <activeConfIndexElem>0</activeConfIndexElem>
+    </data>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/georgez/NetBeansProjects/iaservices/session.h</file>
+            <file>file:/home/georgez/NetBeansProjects/iaservices/server.h</file>
+            <file>file:/home/georgez/NetBeansProjects/iaservices/threadpool.h</file>
+            <file>file:/home/georgez/NetBeansProjects/iaservices/session.cpp</file>
+            <file>file:/home/georgez/NetBeansProjects/iaservices/iasServer.cpp</file>
+            <file>file:/home/georgez/NetBeansProjects/iaservices/iasServer.h</file>
+            <file>file:/home/georgez/NetBeansProjects/iaservices/threadpool.cpp</file>
+            <file>file:/home/georgez/NetBeansProjects/iaservices/taskFactory.h</file>
+        </group>
+    </open-files>
+</project-private>

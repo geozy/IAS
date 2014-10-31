@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="95">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/endPoint.h</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/iaService.h</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/iaServiceDistributor.h</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/iaServiceManager.h</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/iasCallback.h</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/iasData.h</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/iasErrors.h</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/iasResponse.h</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/iasServer.h</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/session.h</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/syncController.h</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/task.h</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/taskFactory.h</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/task_impl.h</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/threadpool.h</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/transAct.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/endPoint.cpp</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/iaServiceDistributor.cpp</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/iasErrors.cpp</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/iasResponse.cpp</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/iasServer.cpp</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/session.cpp</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/syncController.cpp</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/task.cpp</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/taskFactory.cpp</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/task_impl.cpp</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/threadpool.cpp</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/transAct.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="3">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <architecture>2</architecture>
+          <standard>8</standard>
+          <commandLine>-pthread</commandLine>
+        </ccTool>
+        <archiverTool>
+        </archiverTool>
+      </compileType>
+      <item path="/home/georgez/NetBeansProjects/iaservices/endPoint.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/endPoint.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iaService.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iaServiceDistributor.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iaServiceDistributor.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iaServiceManager.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iasCallback.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iasData.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iasErrors.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iasErrors.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iasResponse.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iasResponse.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iasServer.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iasServer.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/session.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/session.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/syncController.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/syncController.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/task.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/task.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/taskFactory.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/taskFactory.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/task_impl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/task_impl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/threadpool.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/threadpool.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/transAct.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/transAct.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="3">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <archiverTool>
+        </archiverTool>
+      </compileType>
+      <item path="/home/georgez/NetBeansProjects/iaservices/endPoint.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/endPoint.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iaService.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iaServiceDistributor.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iaServiceDistributor.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iaServiceManager.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iasCallback.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iasData.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iasErrors.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iasErrors.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iasResponse.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iasResponse.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iasServer.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iasServer.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/session.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/session.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/syncController.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/syncController.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/task.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/task.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/taskFactory.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/taskFactory.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/task_impl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/task_impl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/threadpool.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/threadpool.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/transAct.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/transAct.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
