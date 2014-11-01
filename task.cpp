@@ -13,12 +13,12 @@
 
 task::task(): _pti(new task_impl())
 {
-    std::cout << "Task Created" << std::endl;   
+    //std::cout << "Task Created" << std::endl;   
 }
 
 
 task::~task() {
-    std::cout << "Task Destructed" << std::endl;
+    //std::cout << "Task Destructed" << std::endl;
 }
 
 void task::clean(){
@@ -26,7 +26,7 @@ void task::clean(){
 }
 
 void task::process(){  
-    std::cout << "WARNING task::process() MUST be overridden" << std::endl;
+    //std::cout << "WARNING task::process() MUST be overridden" << std::endl;
 }
 
 bool task::writeBack(const char* data,size_t length){

@@ -15,7 +15,7 @@
 
 std::queue<uint32_t> syncController::transQueue;
 
-std::map<uint32_t,std::weak_ptr<transAct>> syncController::transMap;
+std::map<uint32_t,transAct*> syncController::transMap;
 
 syncController::syncController(endPoint* ep){
     
@@ -30,7 +30,7 @@ syncController::syncController(endPoint* ep){
         //_active is set to false
         while(_active){  
                       
-            std::cout << "Timeout Thread: Waiting for release" << std::endl;           
+            //std::cout << "Timeout Thread: Waiting for release" << std::endl;           
             std::unique_lock<std::mutex> lock(_mut);
             
             // this allows the thread to simply wait until timing services
@@ -39,17 +39,18 @@ syncController::syncController(endPoint* ep){
                 _cv.wait(lock);               
             }
             
-            std::cout << "Timeout Thread: Released" << std::endl;
+            //std::cout << "Timeout Thread: Released" << std::endl;
    
-            // keep looping until queue empty
-           
-            
+            // keep looping until queue empty           
             while(!isQueueEmpty()){
                 auto t=transMap.find(transQueue.front());
                 if(t!= transMap.end()){
-                    auto pTrans=t->second.lock();
+                    auto pTrans=t->second;
                
                     if(pTrans->isTimedOut()){
+                        
+                        //std::cout << "TIMED OUT!!" << std::endl;
+                        
                         // The fact that this object is still present, means
                         // that the transaction is still waiting - so fire a timeout
                         notifyCompletion(IAS_RESPONSE_TIMEOUT,pTrans);
@@ -108,11 +109,11 @@ void syncController::runTimer(){
 
 // The timer and network result are racing to this function
 // First in locks mutex
-void syncController::notifyCompletion( int source, std::shared_ptr<transAct> pTrans ){
+void syncController::notifyCompletion( int source, transAct* pTrans ){
     
     std::unique_lock<std::mutex> lock(_mutx);
     
-    std::cout << "Notify Completion: source=" << source << std::endl;
+    //std::cout << "Notify Completion: source=" << source << std::endl;
 
     // First over the line wins!
     if(!_complete){
@@ -132,7 +133,7 @@ void syncController::notifyCompletion( int source, std::shared_ptr<transAct> pTr
         // release before notification
         lock.unlock();
         
-        std::cout << "Notify Completion: Release Block" << std::endl;
+        //std::cout << "Notify Completion: Release Block" << std::endl;
         
         // release the wait
         _cvm.notify_one();
@@ -141,13 +142,13 @@ void syncController::notifyCompletion( int source, std::shared_ptr<transAct> pTr
 }
 
 // This method blocks until timeout or result received
-void syncController::awaitCompletion(uint32_t ref,std::shared_ptr<task> tp){
+void syncController::awaitCompletion(uint32_t ref,task* tp){
       
     _complete=false;
     _timing=true;
     
     // Create the transAct object, this manages timeouts
-    auto trans=std::make_shared<transAct>(this,ref,tp);
+    //auto trans=std::make_shared<transAct>(this,ref,tp);
     
     // release timer thread waiting on conditional variable _timing
     //_cv.notify_one();

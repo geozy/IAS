@@ -10,25 +10,26 @@
 
 #include <cstdlib>
 #include <memory>
+#include <ctime>
 
 class task;
 class syncController;
 
-class transAct : public std::enable_shared_from_this<transAct> {
+class transAct {
 public:
     
-    transAct(syncController*,uint32_t ref,std::shared_ptr<task> );
+    transAct(syncController*,uint32_t ref,task* );
     virtual ~transAct();
    
     bool isTimedOut();
-    std::shared_ptr<task> getTask(){return _task.lock();}
+    task* getTask(){return _task;}
     uint32_t getRef(){return _ref;}
     
 private:
-    clock_t     _started;
+    time_t     _started;
     syncController * _scp;
     uint32_t    _ref;
-    std::weak_ptr<task> _task;
+    task*        _task;
 };
 
 #endif	/* TRANSACT_H */

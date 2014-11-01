@@ -43,7 +43,7 @@ public:
     void wait(){
         
     }
-    bool sendAwaitResponse(std::shared_ptr<task> pt,size_t);
+    bool sendAwaitResponse(task* ,size_t);
     
 protected:
     

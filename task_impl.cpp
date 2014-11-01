@@ -8,15 +8,15 @@
 #include "task_impl.h"
 
 task_impl::task_impl() {
-    std::cout << "Task Impl Created" << std::endl; 
+    //std::cout << "Task Impl Created" << std::endl; 
 }
 
 task_impl::~task_impl() {
-    std::cout << "Task Impl Destroyed" << std::endl;
+    //std::cout << "Task Impl Destroyed" << std::endl;
 }
 
 void task_impl::clean(){
-    std::cout << "Task Impl Cleaned" << std::endl;
+    //std::cout << "Task Impl Cleaned" << std::endl;
     std::memset(_data,0,max_length);
     length_=0;
 }
@@ -24,7 +24,7 @@ void task_impl::clean(){
 void task_impl::clean(std::shared_ptr<session> ps){
     _pSession=ps;
     length_=0;
-    std::cout << "Task Cleaned" << std::endl;
+    //std::cout << "Task Cleaned" << std::endl;
 }
 
 

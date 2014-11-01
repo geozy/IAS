@@ -28,15 +28,15 @@ class syncController {
     
  public:   
     static std::queue<uint32_t> transQueue;
-    static std::map<uint32_t,std::weak_ptr<transAct>> transMap;
+    static std::map<uint32_t,transAct*> transMap;
      
     syncController(endPoint* ep);
     virtual ~syncController();
     
     uint32_t getTransactionToken();
     void resetTransactionToken();
-    void notifyCompletion( int source ,std::shared_ptr<transAct> pTrans);
-    void awaitCompletion(uint32_t ,std::shared_ptr<task>);
+    void notifyCompletion( int source ,transAct* pTrans);
+    void awaitCompletion(uint32_t ,task*);
     bool isQueueEmpty();
     
     bool isSafe(uint32_t);

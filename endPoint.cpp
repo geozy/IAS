@@ -112,7 +112,7 @@ uint endPoint::write(const char* data,size_t length){
     return length;   
 }
 
-bool endPoint::sendAwaitResponse(std::shared_ptr<task> pt,size_t length){
+bool endPoint::sendAwaitResponse(task* pt,size_t length){
     
     boost::asio::deadline_timer timeout(_io_service);
     bool data_available =false;
@@ -121,14 +121,14 @@ bool endPoint::sendAwaitResponse(std::shared_ptr<task> pt,size_t length){
     pHead->length=(uint32_t)length+sizeof(PACKETHEAD);
     pHead->datasize=(uint32_t)length;
     
-    // Pointer to the calling task
-    //pHead->ref=(uint64_t)&pt;
-    
     // indicate response required
     pHead->resp=1;
     
     // Get a unique transaction id
     pHead->id=_sync.getTransactionToken();
+    
+    //Create the transAct object, this manages timeouts
+    transAct trans(&_sync,pHead->id,pt);
     
     // write task
     boost::asio::write(_socket,boost::asio::buffer(pHead,pHead->datasize+sizeof(PACKETHEAD)));
@@ -159,15 +159,15 @@ void endPoint::do_read(){
         { 
           if (!ec)
           {       
-              std::cout << "DO Read: Data Read " << length << " bytes" << std::endl;
+              //std::cout << "DO Read: Data Read " << length << " bytes" << std::endl;
                   if(!_callback.expired())
                   {
-                      std::cout << "DO Read:Callback is good" << std::endl;
+                      //std::cout << "DO Read:Callback is good" << std::endl;
                       
                       // check if a response
                       if(_pHead->resp){
                           
-                          std::cout << "DO Read:Response Signalled" << std::endl;
+                          //std::cout << "DO Read:Response Signalled" << std::endl;
                           
                           {
                              std::lock_guard<std::mutex> lock(_sync._mx);
@@ -175,8 +175,8 @@ void endPoint::do_read(){
                              auto t=syncController::transMap.find(_pHead->id);
                              if(t!= syncController::transMap.end()){
                                  
-                                auto pTrans=t->second.lock();
-                                std::shared_ptr<task> pTask=pTrans->getTask();
+                                auto pTrans=t->second;
+                                task* pTask=pTrans->getTask();
                                 
                                 std::memcpy(pTask->getImpl()->getHeader(),_pHead,length);
                                 _sync.notifyCompletion(IAS_RESPONSE_SUCCESS,pTrans);
@@ -184,13 +184,13 @@ void endPoint::do_read(){
                                 // remove the transaction
                                 _sync.transMap.erase(t);
                              }else{
-                                 std::cout << "DO Read:Transaction Not Found - timed Out" << std::endl;
+                                 //std::cout << "DO Read:Transaction Not Found - timed Out" << std::endl;
                              }  
                              
                           }
                           
                       }else{
-                           std::cout << "DO Read:No Response Signalled - Post Data" << std::endl;
+                           //std::cout << "DO Read:No Response Signalled - Post Data" << std::endl;
                             // onResponse signals data to handle
                             auto cb=_callback.lock();
                             try{
@@ -204,7 +204,7 @@ void endPoint::do_read(){
                       }
                         
                   }else{
-                      std::cout << "DO Read:BAD CALLBACK" << std::endl;
+                      //std::cout << "DO Read:BAD CALLBACK" << std::endl;
                       // find a way to report this failure
                       assert(true);
                   }             
