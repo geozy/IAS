@@ -7,12 +7,12 @@
       <itemPath>/home/georgez/NetBeansProjects/iaservices/endPoint.h</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/iaService.h</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/iaServiceDistributor.h</itemPath>
-      <itemPath>/home/georgez/NetBeansProjects/iaservices/iaServiceManager.h</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/iasCallback.h</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/iasData.h</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/iasErrors.h</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/iasResponse.h</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/iasServer.h</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/iasServiceManager.h</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/session.h</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/syncController.h</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/task.h</itemPath>
@@ -33,6 +33,7 @@
       <itemPath>/home/georgez/NetBeansProjects/iaservices/iasErrors.cpp</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/iasResponse.cpp</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/iasServer.cpp</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/iasServiceManager.cpp</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/session.cpp</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/syncController.cpp</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/task.cpp</itemPath>
@@ -95,11 +96,6 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="/home/georgez/NetBeansProjects/iaservices/iaServiceManager.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
       <item path="/home/georgez/NetBeansProjects/iaservices/iasCallback.h"
             ex="false"
             tool="3"
@@ -136,6 +132,16 @@
             flavor2="0">
       </item>
       <item path="/home/georgez/NetBeansProjects/iaservices/iasServer.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iasServiceManager.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iasServiceManager.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -258,11 +264,6 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="/home/georgez/NetBeansProjects/iaservices/iaServiceManager.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
       <item path="/home/georgez/NetBeansProjects/iaservices/iasCallback.h"
             ex="false"
             tool="3"
@@ -299,6 +300,16 @@
             flavor2="0">
       </item>
       <item path="/home/georgez/NetBeansProjects/iaservices/iasServer.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iasServiceManager.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iasServiceManager.h"
             ex="false"
             tool="3"
             flavor2="0">

@@ -40,6 +40,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/2137252208/iasErrors.o \
 	${OBJECTDIR}/_ext/2137252208/iasResponse.o \
 	${OBJECTDIR}/_ext/2137252208/iasServer.o \
+	${OBJECTDIR}/_ext/2137252208/iasServiceManager.o \
 	${OBJECTDIR}/_ext/2137252208/session.o \
 	${OBJECTDIR}/_ext/2137252208/syncController.o \
 	${OBJECTDIR}/_ext/2137252208/task.o \
@@ -99,6 +100,11 @@ ${OBJECTDIR}/_ext/2137252208/iasServer.o: /home/georgez/NetBeansProjects/iaservi
 	${MKDIR} -p ${OBJECTDIR}/_ext/2137252208
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/2137252208/iasServer.o /home/georgez/NetBeansProjects/iaservices/iasServer.cpp
+
+${OBJECTDIR}/_ext/2137252208/iasServiceManager.o: /home/georgez/NetBeansProjects/iaservices/iasServiceManager.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/2137252208
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/2137252208/iasServiceManager.o /home/georgez/NetBeansProjects/iaservices/iasServiceManager.cpp
 
 ${OBJECTDIR}/_ext/2137252208/session.o: /home/georgez/NetBeansProjects/iaservices/session.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/2137252208

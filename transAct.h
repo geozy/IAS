@@ -11,6 +11,7 @@
 #include <cstdlib>
 #include <memory>
 #include <ctime>
+#include <mutex>
 
 class task;
 class syncController;
@@ -18,7 +19,7 @@ class syncController;
 class transAct {
 public:
     
-    transAct(syncController*,uint32_t ref,task* );
+    transAct(syncController*,task* );
     virtual ~transAct();
    
     bool isTimedOut();
@@ -26,10 +27,16 @@ public:
     uint32_t getRef(){return _ref;}
     
 private:
-    time_t     _started;
-    syncController * _scp;
-    uint32_t    _ref;
-    task*        _task;
+    
+    uint32_t getToken();
+    
+    time_t              _started;
+    syncController *    _scp;
+    uint32_t            _ref;
+    task*               _task;
+    
+    static std::mutex   _mxTok;
+    static uint32_t     _transToken;
 };
 
 #endif	/* TRANSACT_H */

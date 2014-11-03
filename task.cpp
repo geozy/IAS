@@ -13,6 +13,7 @@
 
 task::task(): _pti(new task_impl())
 {
+    clean();
     //std::cout << "Task Created" << std::endl;   
 }
 

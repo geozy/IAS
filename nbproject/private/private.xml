@@ -7,12 +7,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/georgez/NetBeansProjects/iaservices/syncController.h</file>
-            <file>file:/home/georgez/NetBeansProjects/iaservices/transAct.h</file>
+            <file>file:/home/georgez/NetBeansProjects/iaservices/session.h</file>
+            <file>file:/home/georgez/NetBeansProjects/iaservices/task.cpp</file>
+            <file>file:/home/georgez/NetBeansProjects/iaservices/task.h</file>
             <file>file:/home/georgez/NetBeansProjects/iaservices/endPoint.cpp</file>
-            <file>file:/home/georgez/NetBeansProjects/iaservices/transAct.cpp</file>
-            <file>file:/home/georgez/NetBeansProjects/iaservices/endPoint.h</file>
+            <file>file:/home/georgez/NetBeansProjects/iaservices/task_impl.cpp</file>
             <file>file:/home/georgez/NetBeansProjects/iaservices/syncController.cpp</file>
+            <file>file:/home/georgez/NetBeansProjects/iaservices/iasResponse.cpp</file>
         </group>
     </open-files>
 </project-private>

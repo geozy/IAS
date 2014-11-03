@@ -41,7 +41,9 @@ int task_impl::getLength(){
 }
 
 bool task_impl::writeBack(const char* data,size_t length){ 
-    getHeader()->resp=1;
+    auto pHeader=getHeader();
+    pHeader->resp=1;
+    pHeader->datasize=length;
     boost:asio:write(*getSocket(),boost::asio::buffer(_data,length+sizeof(PACKETHEAD)));
 }
 

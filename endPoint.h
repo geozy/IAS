@@ -32,18 +32,16 @@ public:
     
    bool connect(std::string host,
             std::string port,
-            std::shared_ptr<iasCallback> cb=nullptr );
+            iasCallback* cb=nullptr );
    
-   bool connect_service(std::string service,std::string auth="");
+   bool connect_service(uint servType,std::string service,std::string auth="");
    
     uint write(std::string );
     uint write(const char*,size_t);
-   
+    uint writeAwaitResponse(char* data,size_t* length);
+    
     std::string& getError(){return _error;}
-    void wait(){
-        
-    }
-    bool sendAwaitResponse(task* ,size_t);
+    
     
 protected:
     
@@ -63,7 +61,7 @@ private:
     boost::asio::io_service _io_service; 
     
     iasResponse* _pResponse;
-    std::weak_ptr<iasCallback> _callback;
+    iasCallback* _pCallback;
     std::string _service;
     std::string _port;
     std::string _host;
@@ -79,6 +77,18 @@ public:
     tcp::socket _socket;
 
 };
+
+
+class defaultCB : public iasCallback {
+public:
+    void onAuthenticate(iasResponse*) override {}
+    void onData(iasResponse*,char*) override {}
+    void onConnect(iasResponse*) override {}
+    void onDisConnect() override {}
+    void onError(std::string error) override {}  
+};
+
+
 
 #endif	/* ENDPOINT_H */
 

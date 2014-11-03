@@ -14,7 +14,6 @@
 
 
 std::queue<uint32_t> syncController::transQueue;
-
 std::map<uint32_t,transAct*> syncController::transMap;
 
 syncController::syncController(endPoint* ep){
@@ -93,19 +92,7 @@ syncController::syncController(endPoint* ep){
 syncController::~syncController() {
 }
 
-// This method verifies that the transaction has not timed out yet
-bool syncController::isSafe(uint32_t transID){
-    std::cout << "syncController isSafe: Current token=" << "_currentToken << Transaction Token=" << transID << std::endl;
-    return _currentToken==transID;
-}
 
-
-
-void syncController::runTimer(){
-    _complete=false;
-    _timing=true;
-    _cv.notify_one();
-}
 
 // The timer and network result are racing to this function
 // First in locks mutex
@@ -142,17 +129,11 @@ void syncController::notifyCompletion( int source, transAct* pTrans ){
 }
 
 // This method blocks until timeout or result received
-void syncController::awaitCompletion(uint32_t ref,task* tp){
+void syncController::awaitCompletion(){
       
     _complete=false;
     _timing=true;
-    
-    // Create the transAct object, this manages timeouts
-    //auto trans=std::make_shared<transAct>(this,ref,tp);
-    
-    // release timer thread waiting on conditional variable _timing
-    //_cv.notify_one();
-    
+     
     std::cout << "awaitCompletion: Start" << std::endl;
     std::unique_lock<std::mutex> lock(_mutw);
     
@@ -161,16 +142,6 @@ void syncController::awaitCompletion(uint32_t ref,task* tp){
     
 
     std::cout << "awaitCompletion: Done" << std::endl;
-}
-
-uint32_t syncController::getTransactionToken(){
-    std::lock_guard<std::mutex> lock(_mutb);    
-    return _currentToken=_transToken++;
-}
-
-void syncController::resetTransactionToken(){
-    std::lock_guard<std::mutex> lock(_mutb);
-    _currentToken=0;
 }
 
 bool syncController::isQueueEmpty(){

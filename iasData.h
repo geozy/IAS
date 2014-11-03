@@ -22,7 +22,7 @@
      uint8_t ack        =0;    // set if acknowledgement only required
      uint8_t resp       =0;    // set if full response required
      uint8_t ais        =0;    // signals AIS subsystem   
-     uint8_t reserved1  =0;    // reserved for future / Application use
+     uint8_t result     =0;    // reserved for future / Application use
      uint32_t id        =0;    // Application specific
      uint64_t ref       =0;    // Hold a reference number or 32/64bit pointer    
      char buffer[1];           // pointer to  buffer

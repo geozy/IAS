@@ -10,9 +10,10 @@
 
 #include <cstdlib>
 #include <string>
-
+class iasServiceBase;
 
 class iaService{
+    virtual bool initialise(iasServiceBase*) = 0;
     virtual const char* getServiceName() =0;
     virtual const char* getServiceType() =0;
     virtual void process(const char*,int length)=0;

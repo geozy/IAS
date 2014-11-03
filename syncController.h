@@ -33,19 +33,17 @@ class syncController {
     syncController(endPoint* ep);
     virtual ~syncController();
     
-    uint32_t getTransactionToken();
-    void resetTransactionToken();
     void notifyCompletion( int source ,transAct* pTrans);
-    void awaitCompletion(uint32_t ,task*);
+    void awaitCompletion();
     bool isQueueEmpty();
     
-    bool isSafe(uint32_t);
+  
     
     
     
 private:
     
-    void runTimer();
+   
     boost::asio::io_service* _pIOS;
     std::condition_variable _cv;    //manages timer thread activity
     std::mutex              _mut;   //manages timer thread activity
@@ -62,10 +60,8 @@ private:
     bool                    _timing;
     bool                    _complete;
     
-    //boost::asio::deadline_timer _timer;
+    
     endPoint*   _ep;
-    uint32_t    _transToken;
-    uint32_t    _currentToken;
     task*       _currentTask;
 };
 

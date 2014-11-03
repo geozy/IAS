@@ -61,15 +61,17 @@ bool iasServer::preProcess(task_impl* tp){
     if(pData->ais){
         std::cout << "iasServer PreProcess IAS Flag Set" << std::endl;
         
-        /*
+       
         // AIS Signal Set, so handle here
         switch(pData->ais){
-            case AIS_SERVICE_PRODUCER:
+            case IAS_SERVICE_PRODUCER:
                 // producer requesting to set up service
+                std::cout << "PreProcess: Service Producer" << std::endl;
                 
                 // check authentication
                 
                 // check service does not already exist
+                
                 
                 // if does pass back service reference (ref))
                 
@@ -77,7 +79,7 @@ bool iasServer::preProcess(task_impl* tp){
                 
                 
                 break;
-            case AIS_SERVICE_CONSUMER:
+            case IAS_SERVICE_CONSUMER:
                 // consumer requesting service
                 
                 // check authentication
@@ -88,12 +90,12 @@ bool iasServer::preProcess(task_impl* tp){
                 
                 break;
             
-            case AIS_SERVICE_DETACH:
+            case IAS_SERVICE_DETACH:
                 // called when consumer wants to detach from service
                 
                 break;
                 
-            case AIS_SERVICE_CLOSE:  
+            case IAS_SERVICE_CLOSE:  
                 // called when producer wants to detach from service
                 // if there are no other producers, all consumers are
                 // notified. Service will remain until all consumer/
@@ -102,7 +104,7 @@ bool iasServer::preProcess(task_impl* tp){
                 break;
                
         }
-        */ 
+       
         return false;
     }
     return false;
