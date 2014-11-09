@@ -18,6 +18,7 @@
 #include <mutex>
 
 class iaService;
+class iasServer;
 
 class iasServiceManagerBase{
     virtual bool serviceExists(std::string) =0;
@@ -32,6 +33,7 @@ class iasServiceManagerBase{
 class iasServiceManager: public iasServiceManagerBase {
     
 public:
+    iasServiceManager(iasServer*);
     
     bool serviceExists(std::string) override;
     bool registerService(std::string,iaService* (*)()) override;
@@ -46,10 +48,11 @@ protected:
     
 private:
     
+    iasServer*                                _pServer;
     std::map<std::string,iaService* (*)()>    _registered_services;  
     std::map<std::string,uint>                _active_services;
     std::queue<uint>                          _available_slots;
-    iaService*                                _service_slots[32];
+    std::shared_ptr<iaService>                _service_slots[32];
     std::mutex                                _mx;
 };
 

@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/_ext/2137252208/endPoint.o \
+	${OBJECTDIR}/_ext/2137252208/iaService..o \
 	${OBJECTDIR}/_ext/2137252208/iaServiceDistributor.o \
 	${OBJECTDIR}/_ext/2137252208/iasErrors.o \
 	${OBJECTDIR}/_ext/2137252208/iasResponse.o \
@@ -80,6 +81,11 @@ ${OBJECTDIR}/_ext/2137252208/endPoint.o: /home/georgez/NetBeansProjects/iaservic
 	${MKDIR} -p ${OBJECTDIR}/_ext/2137252208
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/2137252208/endPoint.o /home/georgez/NetBeansProjects/iaservices/endPoint.cpp
+
+${OBJECTDIR}/_ext/2137252208/iaService..o: /home/georgez/NetBeansProjects/iaservices/iaService..cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/2137252208
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/2137252208/iaService..o /home/georgez/NetBeansProjects/iaservices/iaService..cpp
 
 ${OBJECTDIR}/_ext/2137252208/iaServiceDistributor.o: /home/georgez/NetBeansProjects/iaservices/iaServiceDistributor.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/2137252208

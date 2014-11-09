@@ -29,6 +29,7 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>/home/georgez/NetBeansProjects/iaservices/endPoint.cpp</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/iaService..cpp</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/iaServiceDistributor.cpp</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/iasErrors.cpp</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/iasResponse.cpp</itemPath>
@@ -79,6 +80,11 @@
       <item path="/home/georgez/NetBeansProjects/iaservices/endPoint.h"
             ex="false"
             tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iaService..cpp"
+            ex="false"
+            tool="1"
             flavor2="0">
       </item>
       <item path="/home/georgez/NetBeansProjects/iaservices/iaService.h"
@@ -247,6 +253,11 @@
       <item path="/home/georgez/NetBeansProjects/iaservices/endPoint.h"
             ex="false"
             tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iaService..cpp"
+            ex="false"
+            tool="1"
             flavor2="0">
       </item>
       <item path="/home/georgez/NetBeansProjects/iaservices/iaService.h"

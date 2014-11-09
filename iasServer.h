@@ -48,6 +48,8 @@
 #include "taskFactory.h"
 #include "session.h"
 
+class iasServiceManager;
+
 using boost::asio::ip::tcp;
 
 
@@ -66,10 +68,11 @@ public:
   bool preProcess(task_impl* tp);
   
 private:
-    
+   
   void do_accept();
   
   task* (*_makeTask)();
+  std::shared_ptr<iasServiceManager> _pServiceManager;
 
   taskFactory _taskFactory;
   ThreadPool tasks_; 

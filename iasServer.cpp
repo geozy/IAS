@@ -8,13 +8,17 @@
 #include "iasServer.h"
 #include "iasData.h"
 #include "task_impl.h"
+#include "iasServiceManager.h"
+#include "iaService.h"
 
 iasServer::iasServer(boost::asio::io_service& io_service, short port, task* (*makeTask)())
     : acceptor_(io_service, tcp::endpoint(tcp::v4(), port)),
         socket_(io_service),
           _taskFactory(makeTask,8),
-            tasks_(this,0)
+            tasks_(this,0)           
   {
+    
+    _pServiceManager=std::make_shared<iasServiceManager>(this);
     std::cout << "iasServer Created" << std::endl;
     do_accept();
   }
@@ -64,22 +68,34 @@ bool iasServer::preProcess(task_impl* tp){
        
         // AIS Signal Set, so handle here
         switch(pData->ais){
+            
             case IAS_SERVICE_PRODUCER:
+                
+                std::string sn(pData->buffer);
+                
                 // producer requesting to set up service
                 std::cout << "PreProcess: Service Producer" << std::endl;
                 
                 // check authentication
                 
-                // check service does not already exist
+                // check service exists
+                uint serviceid=_pServiceManager->getServiceID(sn);
                 
-                
-                // if does pass back service reference (ref))
-                
-                // else create service and pass back service reference
-                
+                if(serviceid){                   
+                    // if does pass back service reference (ref))
+                    
+                    // attach to service
+                    auto sm=_pServiceManager->getService(serviceid);
+                    sm->connect_service(tp->getSession());
+                    
+                }else{
+                    // Problem creating service
+                    
+                }             
                 
                 break;
-            case IAS_SERVICE_CONSUMER:
+                
+            //case IAS_SERVICE_CONSUMER:
                 // consumer requesting service
                 
                 // check authentication
@@ -88,24 +104,25 @@ bool iasServer::preProcess(task_impl* tp){
                 
                 // pass this session to the service               
                 
-                break;
+                //break;
             
-            case IAS_SERVICE_DETACH:
+            //case IAS_SERVICE_DETACH:
                 // called when consumer wants to detach from service
                 
-                break;
+                //break;
                 
-            case IAS_SERVICE_CLOSE:  
+            //case IAS_SERVICE_CLOSE:  
                 // called when producer wants to detach from service
                 // if there are no other producers, all consumers are
                 // notified. Service will remain until all consumer/
                 // producers have left.
                 
-                break;
+                //break;
                
         }
        
         return false;
     }
+   
     return false;
 }
