@@ -12,23 +12,29 @@
 #include <memory>
 #include <string>
 #include <set>
+#include "iasData.h"
 
 class iasServiceManagerBase;
 class session;
+class task;
 
 class iaService{
 public:
     
     virtual const char* getServiceName() =0;
     virtual const char* getServiceType() =0;
-    virtual void process(const char*,int length)=0;
-    virtual bool connect_service(std::shared_ptr<session>); 
+    virtual void process(task*)=0;
+    virtual bool connect_service(std::shared_ptr<session>,uint type=IAS_SERVICE_CONSUMER); 
     virtual bool initialise(iasServiceManagerBase*);
     
-private:
+
     
-    std::set<std::weak_ptr<session>>    _producers;
-    std::set<std::weak_ptr<session>>    _listeners;
+protected:
+    
+    std::set<std::weak_ptr<session>,std::owner_less<std::weak_ptr<session>>>    _producers;
+    std::set<std::weak_ptr<session>,std::owner_less<std::weak_ptr<session>>>    _listeners;
+
+private:
     
     iasServiceManagerBase*              _pManager;
     

@@ -26,6 +26,11 @@
 iasServiceManager::iasServiceManager(iasServer* ps){ 
     _pServer=ps;
     
+    // Set up available slots, slot 0 is always empty
+    for(int x=1;x<32;x++){
+        _available_slots.push(x);
+    }
+    
 }
 
 
@@ -51,7 +56,7 @@ iaService* iasServiceManager::getService(std::string sn){
     std::lock_guard<std::mutex> lock(_mx);
     auto s=_active_services.find(sn);
     if(s!=_active_services.end()){
-        return _service_slots[s->second].get();
+        return _service_slots[s->second];
     }
     
     
@@ -69,7 +74,7 @@ iaService* iasServiceManager::getService(std::string sn){
  * @return          // Pointer to iaAervice
  */
 iaService* iasServiceManager::getService(uint id){
-    return _service_slots[id].get();   
+    return _service_slots[id];   
 }
 
 
@@ -121,7 +126,7 @@ bool iasServiceManager::createService(std::string sn){
                 _active_services[sn]=serviceid;
                 
                 // Add raw service pointer to service vector
-                _service_slots[serviceid]=pService;
+                _service_slots[serviceid]=pService.get();
                 
                 // Initialise Service
                 result=pService->initialise(this);

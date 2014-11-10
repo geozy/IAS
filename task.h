@@ -47,6 +47,8 @@ public:
     virtual void process();  
     bool writeBack(const char* data,size_t length);
     
+    
+    
 private:
     
     std::unique_ptr<task_impl> _pti;

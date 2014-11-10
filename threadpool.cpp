@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include "threadpool.h"
 #include "iasServer.h"
+#include "iaService.h"
 #include "task_impl.h"
 
 // the constructor just launches some amount of workers
@@ -42,7 +43,20 @@ ThreadPool::ThreadPool(iasServer* ps, size_t t = 0)
                         auto impl=ptask->getImpl();
                         if(!this->pServer_->preProcess(impl)){  
                             std::cerr << "Threadpool: Process Task" << std::endl;
-                            ptask->process();
+                            
+                            //ptask->process();
+                            
+                            // we need to target this task to the correct service
+                            // get the service reference
+                            auto header=(ptask->getImpl())->getHeader();
+                            
+                            auto service=pServer_->getService(header->id);
+                            if(service){                      
+                                service->process(ptask);
+                            }else{
+                               std::cerr << "ERROR: Service ID NOT FOUND" << std::endl; 
+                            }
+                            
                         }
                     }catch(...){
                         std::cerr << "ERROR: Task Process Exception" << std::endl;

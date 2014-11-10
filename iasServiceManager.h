@@ -52,8 +52,9 @@ private:
     std::map<std::string,iaService* (*)()>    _registered_services;  
     std::map<std::string,uint>                _active_services;
     std::queue<uint>                          _available_slots;
-    std::shared_ptr<iaService>                _service_slots[32];
+    iaService*                                _service_slots[32];
     std::mutex                                _mx;
+    
 };
 
 

@@ -9,6 +9,7 @@
       <itemPath>/home/georgez/NetBeansProjects/iaservices/iaServiceDistributor.h</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/iasCallback.h</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/iasData.h</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/iasDataBuffer.h</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/iasErrors.h</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/iasResponse.h</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/iasServer.h</itemPath>
@@ -31,6 +32,7 @@
       <itemPath>/home/georgez/NetBeansProjects/iaservices/endPoint.cpp</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/iaService..cpp</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/iaServiceDistributor.cpp</itemPath>
+      <itemPath>/home/georgez/NetBeansProjects/iaservices/iasDataBuffer.cpp</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/iasErrors.cpp</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/iasResponse.cpp</itemPath>
       <itemPath>/home/georgez/NetBeansProjects/iaservices/iasServer.cpp</itemPath>
@@ -108,6 +110,16 @@
             flavor2="0">
       </item>
       <item path="/home/georgez/NetBeansProjects/iaservices/iasData.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iasDataBuffer.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iasDataBuffer.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -281,6 +293,16 @@
             flavor2="0">
       </item>
       <item path="/home/georgez/NetBeansProjects/iaservices/iasData.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iasDataBuffer.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/georgez/NetBeansProjects/iaservices/iasDataBuffer.h"
             ex="false"
             tool="3"
             flavor2="0">

@@ -28,6 +28,9 @@
      char buffer[1];           // pointer to  buffer
 }PACKETHEAD,*PACKETHEAD_PTR;
 
+#define IAS_MAX_BUUFER_SIZE     2048
+
+
 #define IAS_SERVICE_PRODUCER    1
 #define IAS_SERVICE_CONSUMER    2
 #define IAS_SERVICE_DETACH      3  // called by consumer

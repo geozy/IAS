@@ -49,6 +49,7 @@
 #include "session.h"
 
 class iasServiceManager;
+class iaService;
 
 using boost::asio::ip::tcp;
 
@@ -66,6 +67,8 @@ public:
   task* fetchTask(std::shared_ptr<session> ps);
   void recycleTask(task* tp);
   bool preProcess(task_impl* tp);
+  iaService* getService(uint id);
+  
   
 private:
    

@@ -27,12 +27,8 @@ public:
     
     // public iaService methods
     const char* getServiceName() override;
-    const char* getServiceType() override;
-    void process(const char*,int length) override;
-    
-private:
-    
-    std::set<std::shared_ptr<session>> _listeners;
+    const char* getServiceType() override;   
+    void process(task*) override;
 
 };
 

@@ -10,6 +10,7 @@
 #include "task_impl.h"
 #include "iasServiceManager.h"
 #include "iaService.h"
+#include "iasErrors.h"
 
 iasServer::iasServer(boost::asio::io_service& io_service, short port, task* (*makeTask)())
     : acceptor_(io_service, tcp::endpoint(tcp::v4(), port)),
@@ -55,6 +56,10 @@ void iasServer::recycleTask(task* tp){
 
 task* iasServer::fetchTask(std::shared_ptr<session> ps){
    return  _taskFactory.getTask(ps);
+}
+
+iaService* iasServer::getService(uint id){
+    return _pServiceManager->getService(id);
 }
 
 bool iasServer::preProcess(task_impl* tp){

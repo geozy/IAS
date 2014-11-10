@@ -38,6 +38,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/2137252208/endPoint.o \
 	${OBJECTDIR}/_ext/2137252208/iaService..o \
 	${OBJECTDIR}/_ext/2137252208/iaServiceDistributor.o \
+	${OBJECTDIR}/_ext/2137252208/iasDataBuffer.o \
 	${OBJECTDIR}/_ext/2137252208/iasErrors.o \
 	${OBJECTDIR}/_ext/2137252208/iasResponse.o \
 	${OBJECTDIR}/_ext/2137252208/iasServer.o \
@@ -91,6 +92,11 @@ ${OBJECTDIR}/_ext/2137252208/iaServiceDistributor.o: /home/georgez/NetBeansProje
 	${MKDIR} -p ${OBJECTDIR}/_ext/2137252208
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/2137252208/iaServiceDistributor.o /home/georgez/NetBeansProjects/iaservices/iaServiceDistributor.cpp
+
+${OBJECTDIR}/_ext/2137252208/iasDataBuffer.o: /home/georgez/NetBeansProjects/iaservices/iasDataBuffer.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/2137252208
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/2137252208/iasDataBuffer.o /home/georgez/NetBeansProjects/iaservices/iasDataBuffer.cpp
 
 ${OBJECTDIR}/_ext/2137252208/iasErrors.o: /home/georgez/NetBeansProjects/iaservices/iasErrors.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/2137252208

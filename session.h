@@ -30,7 +30,7 @@ public:
     tcp::socket* getSocket();
     void start();
     
-    void writeToListener(const char* data, int length);
+    void writeToListener(task*);
     
     std::shared_ptr<iaService> getService();
     

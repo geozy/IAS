@@ -15,8 +15,7 @@ iaServiceDistributor::~iaServiceDistributor() {
 }
 
 const char* iaServiceDistributor::getServiceName(){
-    
-    
+   return "iasServices:distributor";  
 }
 
 const char* iaServiceDistributor::getServiceType(){
@@ -24,11 +23,19 @@ const char* iaServiceDistributor::getServiceType(){
 }
 
 
-void iaServiceDistributor::process(const char* data,int length){
-     // Do any cleanup with raw data first
+void iaServiceDistributor::process(task* ptask){
+     // Do any cleanup with raw data first 
     
     // Then publish to all listeners
-    for(auto ps : _listeners){
-        ps->writeToListener(data,length);
+    auto i= _listeners.begin();
+    while(i != _listeners.end()){
+        if(auto ptr=i->lock()){
+           ptr->writeToListener(ptask); 
+        }else{
+            // erase any expired pointers
+            i=_listeners.erase(i);
+            continue;
+        }
     }
+    
 }

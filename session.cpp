@@ -73,8 +73,13 @@ session::~session(){
       return &socket_;
   }
   
-  void session::writeToListener(const char* data, int length){
+  void session::writeToListener(task* ptask){
+      // prep the header for listeners
+      auto header = ptask->getImpl()->getHeader();
+      header->resp=0;
       
+      // send the data - blocking
+      boost::asio::write(socket_,boost::asio::buffer(header,header->length));
   }
 
   std::shared_ptr<iaService> session::getService(){
