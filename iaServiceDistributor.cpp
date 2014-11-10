@@ -8,6 +8,10 @@
 #include "iaServiceDistributor.h"
 #include "session.h"
 
+iaService* iaServiceDistributor::make(){
+    return (iaService*)new iaServiceDistributor();
+}
+
 iaServiceDistributor::iaServiceDistributor() {
 }
 

@@ -54,7 +54,7 @@ private:
     std::queue<uint>                          _available_slots;
     iaService*                                _service_slots[32];
     std::mutex                                _mx;
-    
+    std::map<std::string,iaService* (*)()>    _service_types;
 };
 
 

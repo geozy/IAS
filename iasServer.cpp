@@ -62,6 +62,10 @@ iaService* iasServer::getService(uint id){
     return _pServiceManager->getService(id);
 }
 
+iasServiceManager* iasServer::getServiceManager(){
+    return _pServiceManager.get();
+}
+
 bool iasServer::preProcess(task_impl* tp){
     PACKETHEAD_PTR pData=tp->getHeader();
     
@@ -104,7 +108,7 @@ bool iasServer::preProcess(task_impl* tp){
                 // consumer requesting service
                 
                 // check authentication
-                
+                iasServiceManager* getServiceManager();
                 // check if service exists
                 
                 // pass this session to the service               
@@ -119,7 +123,7 @@ bool iasServer::preProcess(task_impl* tp){
             //case IAS_SERVICE_CLOSE:  
                 // called when producer wants to detach from service
                 // if there are no other producers, all consumers are
-                // notified. Service will remain until all consumer/
+                // notified. Service will remain until alliasServiceManager* getServiceManager(); consumer/
                 // producers have left.
                 
                 //break;

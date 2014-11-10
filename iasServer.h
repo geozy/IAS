@@ -68,7 +68,7 @@ public:
   void recycleTask(task* tp);
   bool preProcess(task_impl* tp);
   iaService* getService(uint id);
-  
+  iasServiceManager* getServiceManager();
   
 private:
    

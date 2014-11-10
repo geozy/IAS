@@ -22,6 +22,8 @@ class session;
 class iaServiceDistributor : public iaService{
 public:
     
+    static iaService* make();
+    
     iaServiceDistributor();
     virtual ~iaServiceDistributor();
     
