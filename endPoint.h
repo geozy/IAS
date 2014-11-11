@@ -71,6 +71,7 @@ private:
     uint32_t    _transToken;
     uint32_t    _currentToken;
     std::mutex  _tokenMutex;
+    uint32_t    _serviceid;
     
     syncController _sync;
 public:

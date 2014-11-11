@@ -66,7 +66,7 @@ public:
   void addTask(task* tp); 
   task* fetchTask(std::shared_ptr<session> ps);
   void recycleTask(task* tp);
-  bool preProcess(task_impl* tp);
+  bool preProcess(task* tp);
   iaService* getService(uint id);
   iasServiceManager* getServiceManager();
   

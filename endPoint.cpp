@@ -27,6 +27,7 @@ endPoint::endPoint() :
     _pCallback=(iasCallback*)defaultIACallback.get();
     _pHead=(PACKETHEAD_PTR)&_data;
     _transToken=1;
+    _serviceid=0;
 }
 
 
@@ -116,18 +117,33 @@ bool endPoint::connect_service(uint servType,std::string service,std::string aut
     // wait for response or timeout
     _sync.awaitCompletion();
     
+    _serviceid=(uint32_t)pHead->sid;
+    
     // success / erro in result flag
     return pHead->result == 0;
        
 }
      
 uint endPoint::write(std::string s){
-    boost::asio::write(_socket, boost::asio::buffer(s, s.length()));
-    return s.length();
+    return write(s.c_str(),s.length());
 }
 
 uint endPoint::write(const char* data,size_t length){
-    boost::asio::write(_socket, boost::asio::buffer(data, length));
+    task t;
+     
+    // move data into task buffer
+    std::memcpy(t.getBuffer(),data,length);
+    
+    // get task header
+    auto pHead=t.getImpl()->getHeader();
+    
+    // setup header
+    pHead->length=(uint32_t)length+sizeof(PACKETHEAD);
+    pHead->datasize=(uint32_t)length;
+    pHead->sid=_serviceid;
+    pHead->resp=0;
+    
+    boost::asio::write(_socket,boost::asio::buffer(pHead,pHead->length));
     return length;   
 }
 
@@ -144,6 +160,7 @@ uint endPoint::writeAwaitResponse(char* data,size_t* plength){
     // setup header
     pHead->length=(uint32_t)length+sizeof(PACKETHEAD);
     pHead->datasize=(uint32_t)length;
+    pHead->sid=_serviceid;
     
     // indicate response required
     pHead->resp=1;

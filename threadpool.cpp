@@ -40,8 +40,8 @@ ThreadPool::ThreadPool(iasServer* ps, size_t t = 0)
 
                     // Do the task processing, method is virtual
                     try{
-                        auto impl=ptask->getImpl();
-                        if(!this->pServer_->preProcess(impl)){  
+                        //
+                        if(!this->pServer_->preProcess(ptask)){  
                             std::cerr << "Threadpool: Process Task" << std::endl;
                             
                             //ptask->process();

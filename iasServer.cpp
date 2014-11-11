@@ -66,8 +66,9 @@ iasServiceManager* iasServer::getServiceManager(){
     return _pServiceManager.get();
 }
 
-bool iasServer::preProcess(task_impl* tp){
-    PACKETHEAD_PTR pData=tp->getHeader();
+bool iasServer::preProcess(task* tp){
+    auto impl=tp->getImpl();
+    PACKETHEAD_PTR pData=impl->getHeader();
     
     std::cout << "iasServer PreProcess" << std::endl;
     
@@ -91,11 +92,22 @@ bool iasServer::preProcess(task_impl* tp){
                 uint serviceid=_pServiceManager->getServiceID(sn);
                 
                 if(serviceid){                   
-                    // if does pass back service reference (ref))
+                    // if does pass back service reference (ref))                  
+                    pData->sid=(uint32_t)serviceid;
+                                    
+                    // get service ptr
+                    iaService* ps=_pServiceManager->getService(serviceid);
                     
-                    // attach to service
-                    auto sm=_pServiceManager->getService(serviceid);
-                    sm->connect_service(tp->getSession());
+                    // Get Session Ptr
+                    std::shared_ptr<session> sess=impl->getSession();
+                    
+                    // connect service to session
+                    ps->connect_service(sess);
+                    
+                    pData->result=0;
+                    pData->length=sizeof(PACKETHEAD);
+                    pData->datasize=0;
+                    sess->writeResponse(tp);
                     
                 }else{
                     // Problem creating service

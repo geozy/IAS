@@ -56,7 +56,7 @@ iaService* iasServiceManager::getService(std::string sn){
     std::lock_guard<std::mutex> lock(_mx);
     auto s=_active_services.find(sn);
     if(s!=_active_services.end()){
-        return _service_slots[s->second];
+        return _service_slots[s->second].get();
     }
     
     
@@ -74,7 +74,7 @@ iaService* iasServiceManager::getService(std::string sn){
  * @return          // Pointer to iaAervice
  */
 iaService* iasServiceManager::getService(uint id){
-    return _service_slots[id];   
+    return _service_slots[id].get();   
 }
 
 
@@ -126,7 +126,7 @@ bool iasServiceManager::createService(std::string sn){
                 _active_services[sn]=serviceid;
                 
                 // Add raw service pointer to service vector
-                _service_slots[serviceid]=pService.get();
+                _service_slots[serviceid]=pService;
                 
                 // Initialise Service
                 result=pService->initialise(this);

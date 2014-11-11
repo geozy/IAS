@@ -31,6 +31,7 @@ public:
     void start();
     
     void writeToListener(task*);
+    void writeResponse(task*);
     
     std::shared_ptr<iaService> getService();
     

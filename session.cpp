@@ -73,6 +73,15 @@ session::~session(){
       return &socket_;
   }
   
+  void session::writeResponse(task* ptask){
+      // prep the header for listeners
+      auto header = ptask->getImpl()->getHeader();
+      header->resp=1;
+      
+      // send the data - blocking
+      boost::asio::write(socket_,boost::asio::buffer(header,header->length));
+  }
+  
   void session::writeToListener(task* ptask){
       // prep the header for listeners
       auto header = ptask->getImpl()->getHeader();
