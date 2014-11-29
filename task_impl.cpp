@@ -90,14 +90,14 @@ void task_impl::setHeader(int type,int command,uint length){
 
 void task_impl::setResponseHeader(int command,uint length){
     PACKETHEAD_PTR pHead=getHeader();
-    pHead->ais=1;
+    pHead->ais=(uint8_t)command;
     pHead->datasize=(uint16_t)length;
     pHead->type=(uint16_t)command;
     
 }
 void task_impl::setRequestHeader(int command,uint length){
     PACKETHEAD_PTR pHead=getHeader();
-    pHead->ais=1;
+    pHead->ais=(uint8_t)command;
     pHead->datasize=(uint16_t)length;
     pHead->type=(uint16_t)command;
 }

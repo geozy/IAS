@@ -48,9 +48,9 @@ ThreadPool::ThreadPool(iasServer* ps, size_t t = 0)
                             
                             // we need to target this task to the correct service
                             // get the service reference
-                            auto header=(ptask->getImpl())->getHeader();
+                            PACKETHEAD_PTR header=(ptask->getImpl())->getHeader();
                             
-                            auto service=pServer_->getService(header->id);
+                            auto service=pServer_->getService(header->sid);
                             if(service){                      
                                 service->process(ptask);
                             }else{

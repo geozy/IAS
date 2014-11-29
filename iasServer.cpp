@@ -80,7 +80,7 @@ bool iasServer::preProcess(task* tp){
         switch(pData->ais){
             
             case IAS_SERVICE_PRODUCER:
-                
+            {
                 std::string sn(pData->buffer);
                 
                 // producer requesting to set up service
@@ -102,7 +102,7 @@ bool iasServer::preProcess(task* tp){
                     std::shared_ptr<session> sess=impl->getSession();
                     
                     // connect service to session
-                    ps->connect_service(sess);
+                    ps->connect_service(sess,IAS_SERVICE_PRODUCER);
                     
                     pData->result=0;
                     pData->length=sizeof(PACKETHEAD);
@@ -111,21 +111,42 @@ bool iasServer::preProcess(task* tp){
                     
                 }else{
                     // Problem creating service
-                    
+                   
                 }             
+            }
+            break;
                 
-                break;
-                
-            //case IAS_SERVICE_CONSUMER:
+            case IAS_SERVICE_CONSUMER:
+            {
                 // consumer requesting service
-                
+                std::string sn(pData->buffer);
                 // check authentication
-                iasServiceManager* getServiceManager();
-                // check if service exists
+                               
+                // check service exists
+                uint serviceid=_pServiceManager->getServiceID(sn);
                 
-                // pass this session to the service               
-                
-                //break;
+                if(serviceid){                   
+                    // if does pass back service reference (ref))                  
+                    pData->sid=(uint32_t)serviceid;
+                                    
+                    // get service ptr
+                    iaService* ps=_pServiceManager->getService(serviceid);
+                    
+                    // Get Session Ptr
+                    std::shared_ptr<session> sess=impl->getSession();
+                    
+                    // connect service to session
+                    ps->connect_service(sess,IAS_SERVICE_CONSUMER);
+                    
+                    pData->result=0;
+                    pData->length=sizeof(PACKETHEAD);
+                    pData->datasize=0;
+                    sess->writeResponse(tp);         
+                }else{
+                    // Could not connect
+                }
+            }
+            break;
             
             //case IAS_SERVICE_DETACH:
                 // called when consumer wants to detach from service
@@ -139,6 +160,8 @@ bool iasServer::preProcess(task* tp){
                 // producers have left.
                 
                 //break;
+            
+  
                
         }
        

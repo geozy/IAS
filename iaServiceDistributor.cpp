@@ -40,6 +40,7 @@ void iaServiceDistributor::process(task* ptask){
             i=_listeners.erase(i);
             continue;
         }
+        i++;
     }
     
 }

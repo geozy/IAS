@@ -179,6 +179,10 @@ uint endPoint::writeAwaitResponse(char* data,size_t* plength){
     data[pHead->datasize]=0;
     *plength=pHead->datasize;
     
+    if(!_serviceid && pHead->sid){
+        _serviceid=pHead->sid;
+    }
+    
     return true;
 }
 
@@ -202,7 +206,7 @@ void endPoint::do_read(){
                       // check if a response
                       if(_pHead->resp){
                           
-                          //std::cout << "DO Read:Response Signalled" << std::endl;
+                          std::cout << "DO Read:Response Signalled" << std::endl;
                           
                           {
                              std::lock_guard<std::mutex> lock(_sync._mx);

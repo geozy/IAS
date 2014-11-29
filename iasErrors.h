@@ -12,15 +12,17 @@
 #include <iostream>
 #include <string>
 
+/*
 class iasError : public boost::system::error_category
 {
 public:
-    const char *name() const;
-    std::string message(int ev) const;
+    const char *name() const override;
+    std::string message(int ev) const override;
     
 private:
         
 };
+*/
 
 enum class Errors : uint32_t {
     IAS_SUCCESS             =0,

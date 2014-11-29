@@ -40,9 +40,10 @@ iasServiceManager::iasServiceManager(iasServer* ps){
  * @param       :  Name of Service being checked
  * @return      :  true if service exists
  */
-bool iasServiceManager::serviceExists(std::string){
-    
-    return false; 
+bool iasServiceManager::serviceExists(std::string sn){
+    std::lock_guard<std::mutex> lock(_mx);
+    auto s=_active_services.find(sn);
+    return s!=_active_services.end();
 }
 
 
